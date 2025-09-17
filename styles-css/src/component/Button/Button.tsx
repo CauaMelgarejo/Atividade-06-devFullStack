@@ -1,7 +1,16 @@
-function Button({ children, onClick, variant = "solid", disabled }) {
+import React from 'react';
+
+type ButtonProps = {
+  children: React.ReactNode; 
+  onClick?: () => void; 
+  variant?: 'solid' | 'outline' | 'ghost'; 
+  disabled?: boolean;
+}
+
+function Button({ children, onClick, variant = "solid", disabled }: ButtonProps) {
   let finalClassName = "btn";
 
-  if (variante === "outline") {
+  if (variant === "outline") { 
     finalClassName = finalClassName + " btn-outline";
   } else if (variant === "ghost") {
     finalClassName = finalClassName + " btn-ghost";
@@ -15,3 +24,5 @@ function Button({ children, onClick, variant = "solid", disabled }) {
     </button>
   );
 }
+
+export default Button;

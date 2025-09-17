@@ -1,0 +1,201 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:root {
+    /* Suas cores */
+  --cor-primaria: #592286;
+  --cor-primaria-hover: #ac68cc;
+  --cor-texto-primario: #ffffff; /* Texto sobre a cor primária (ex: em botões) */
+
+  /* Novas variáveis que precisamos */
+  --cor-fundo: #f8f9fa;       /* Fundo da página (branco acinzentado) */
+  --cor-fundo-card: #c9c7c7;   /* Fundo dos componentes (branco puro) */
+  --cor-texto: #212529;        /* Cor do texto principal (quase preto) */
+  --cor-borda: #e0e0e0;         /* Cor das bordas sutis */
+  --cor-sombra: rgba(0, 0, 0, 0.1);
+}
+[data-theme="dark"] {
+  --cor-primaria: #2f0b3d; /* Um roxo mais claro para se destacar no escuro */
+  --cor-primaria-hover: #b87fd1;
+  --cor-texto-primario: #ffffff;
+
+  /* Cores invertidas */
+  --cor-fundo: #121212;
+  --cor-fundo-card: #1e1e1e;
+  --cor-texto: #e9ecef;
+  --cor-borda: #495057;
+  --cor-sombra: rgba(0, 0, 0, 0.4);
+}
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+}
+.btn{
+    padding: 10px 20px;
+    border: 2px solid transparent;
+    border-radius: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    cursor: pointer;
+    transition: all 200ms ease-in-out;
+}
+.btn:focus{
+    outline: 3px solid var(--cor-primaria);
+}
+.btn:disabled{
+    background-color: #e9ecef;
+    color: #6c757d;
+    border-color: #e9ecef;
+    cursor: not-allowed;
+}
+
+.btn-solid{
+    background-color: var(--cor-primaria);
+    color: var(--cor-texto-primario);
+    border-color: var(--cor-primaria);
+}
+
+.btn-solid:hover{
+    background-color: var(--cor-primaria-hover);
+    border-color: var(--cor-primaria-hover);
+}
+
+.btn-outline{
+    background-color: transparent;
+    color: var(--cor-primaria);
+    border-color: var(--cor-primaria);
+}
+
+.btn-outline:hover{
+    background-color: var(--cor-primaria);
+    color: var(--cor-texto-primario);
+    border-color: var(--cor-primaria);
+}
+
+.btn-ghost{
+    background-color: transparent;
+    color: var(--cor-primaria);
+    border-color: transparent;
+}
+
+.btn-ghost:hover{
+    background-color: var(--cor-primaria-hover);
+    border-color:var(--cor-primaria-hover);
+    color: var(--cor-texto-primario);
+}
+
+.productCard {
+    position: relative;
+  background-color: var(--cor-fundo-card);
+  padding: 16px;
+  border: 2px solid #e0e0e0;
+  box-shadow: 0 4px 8px var(--cor-sombra);
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+}
+.cardImage{
+    aspect-ratio: 1/1 ;
+    object-fit: cover;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.cardTitle {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* <- O número de linhas */
+  -webkit-box-orient: vertical;
+}
+.cardPrice {
+  color: var(--cor-texto); 
+  font-weight: bold;       
+  font-size: 22px;        
+  margin-top: 8px;         
+}
+.cardRating {
+  display: flex;
+  align-items: center;
+  gap: 4px; 
+  font-size: 14px;
+  color: #6c757d; 
+  margin-top: 16px; 
+}
+.cardTag {
+  position: absolute;
+  top: 16px; 
+  left: 13px; 
+  background-color: var(--cor-primaria);
+  color: var(--cor-texto-primario);
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: bold;
+}
+.app-container {
+  display: grid;
+  grid-template-columns: 1fr; /* 1 coluna de largura igual */
+  gap: 16px; /* Espaço entre os cards */
+  padding: 16px; /* Espaço nas laterais da tela */
+}
+@media (min-width: 481px) {
+  .app-container {
+    grid-template-columns: repeat(2, 1fr); /* 2 colunas */
+  }
+}
+@media (min-width:789px){
+    .app-container{
+        grid-template-columns: repeat(3,1fr);
+    }
+}
+@media (min-width:1025px){
+    .app-container{
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color:var(--cor-primaria);
+  border-bottom: 1px solid var(--cor-borda);
+  color: var(--cor-texto-primario);
+
+}
+.navbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+
+.theme-toggle-btn,
+.cart-btn {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 24px; 
+  padding: 4px;
+  position: relative; 
+}
+
+
+.cart-badge {
+  position: absolute; 
+  top: 0;
+  right: 0;
+  background-color: red;
+  color: white;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  font-size: 12px;
+  font-weight: bold;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
